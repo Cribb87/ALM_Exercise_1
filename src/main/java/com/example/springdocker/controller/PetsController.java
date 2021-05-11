@@ -1,7 +1,11 @@
 package com.example.springdocker.controller;
 
-import org.springframework.context.annotation.Conditional;
-import org.springframework.stereotype.Controller;
+import com.example.springdocker.model.Pets;
+import com.example.springdocker.service.PetsService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * Created by Christoffer Grännby
@@ -10,7 +14,25 @@ import org.springframework.stereotype.Controller;
  * Project: spring-docker-demo
  * Copyright: MIT
  */
+@RequiredArgsConstructor
+@RestController
+@RequestMapping("/pets")
 public class PetsController {
 
+    private final PetsService petsService;
 
+    @GetMapping("/")
+    public List<Pets> getAllPets(){
+        return petsService.getAllPets();
+    }
+
+    @GetMapping("/race")
+    public List<Pets> getByRace(@RequestParam String race){
+        return petsService.getByRace(race);
+    }
+
+    @PostMapping("/add")
+    public void addNewPet(@RequestBody Pets pet){
+        petsService.saveNewPet(pet);
+    }
 }
