@@ -8,4 +8,7 @@ package com.example.springdocker.model;
  * Copyright: MIT
  */
 public class Pets {
+    String id;
+    String name;
+    String race;
 }
