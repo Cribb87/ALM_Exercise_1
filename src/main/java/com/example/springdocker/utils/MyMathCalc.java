@@ -1,4 +1,4 @@
-package com.example.springdocker.model;
+package com.example.springdocker.utils;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,9 +11,6 @@ import lombok.NoArgsConstructor;
  * Project: spring-docker-demo
  * Copyright: MIT
  */
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 public class MyMathCalc {
 
     public int add (int a, int b){
@@ -25,7 +22,11 @@ public class MyMathCalc {
     }
 
 
-    public double divide (int a, int b){
-        return a/b;
+    public double divide (int a, int b) {
+        if (b == 0) {
+            throw new NumberFormatException("You cant divide with 0");
+        } else {
+            return a / b;
+        }
     }
 }

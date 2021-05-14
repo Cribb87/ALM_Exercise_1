@@ -1,6 +1,5 @@
 package com.example.springdocker.repository;
 
-import com.example.springdocker.model.Food;
 import com.example.springdocker.model.Pets;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
