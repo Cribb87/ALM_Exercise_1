@@ -1,10 +1,12 @@
 FROM maven:3.6.0-jdk-11-slim AS build
+WORKDIR /mvn-test
+COPY ./pom.xml .
 RUN mvn clean package
 FROM adoptopenjdk/openjdk11:alpine-jre
 WORKDIR /testproject
 EXPOSE 8080
 ARG JAR_FILE=target/*.jar
-COPY ${JAR_FILE} /testproject/app.jar
+COPY --from = build ${JAR_FILE} /testproject/app.jar
 ENTRYPOINT ["java", "-jar", "app.jar"]
 
 #
