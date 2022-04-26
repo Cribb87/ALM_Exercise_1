@@ -21,6 +21,35 @@
         <java.version>11</java.version>
     </properties>
 
+    <distributionManagement>
+        <repository>
+            <id>maven-releases</id>
+            <name>af release repository</name>
+            <url>http://nexus.arbetsformedlingen.se/repository/maven-releases</url>
+        </repository>
+
+        <snapshotRepository>
+            <id>maven-snapshots</id>
+            <name>af snapshot repository</name>
+            <url>http://nexus.arbetsformedlingen.se/repository/maven-snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
+    <repositories>
+        <repository>
+            <id>maven-public</id>
+            <name>AF Public Repo</name>
+            <url>http://nexus.arbetsformedlingen.se/repository/maven-public/</url>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>maven-public</id>
+            <name>AF Public Repo</name>
+            <url>http://nexus.arbetsformedlingen.se/repository/maven-public/</url>
+        </pluginRepository>
+    </pluginRepositories>
+
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
