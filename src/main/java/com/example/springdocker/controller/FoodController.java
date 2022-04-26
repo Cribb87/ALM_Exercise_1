@@ -15,6 +15,11 @@ import java.util.List;
 public class FoodController {
     private final FoodService service;
 
+    @GetMapping("/hello")
+    public String hello() {
+        return "Hello best user ever";
+    }
+
     @GetMapping("/foods")
     public List<Food> getFoods() {
         return service.getFoods();
